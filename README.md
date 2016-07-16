@@ -138,6 +138,7 @@ Response
   "error": null
 }
 
+5)Please check out the LICCap file for more instructions
 
 
 
