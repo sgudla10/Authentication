@@ -139,7 +139,7 @@ Response
 }
 
 5)Please check out the LICCap file for more instructions
-
+https://github.com/sgudla10/Authentication/blob/master/AuthServiceLicCap.gif
 
 
  
