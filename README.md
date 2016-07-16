@@ -17,6 +17,129 @@ once it is build properly run the jetty continer
 mvn jetty:run
 
 
-4)Open the postman and call the service
+4)Open the postman and call the service.As we inserted one record in the table .The different scenations with requests
+
+Bad request scenario
+***********************
+
+1)http://hostname:8080/netgear-auth-service/user/login
+Request 
+{
+    
+    
+}
+
+Response
+{
+  "email": null,
+  "lastName": null,
+  "firstName": null,
+  "name": null,
+  "error": [
+    {
+      "code": "400.AuthService.BAD_REQUEST",
+      "desc": ", password : may not be null, email : may not be null"
+    }
+  ]
+}
+
+HTTP response :400
+
+2)http://hostname:8080/netgear-auth-service/user/login
+Request 
+{
+    "email":"swati.gudla@gmail.com"
+
+    
+}
+Response
+{
+  "email": null,
+  "lastName": null,
+  "firstName": null,
+  "name": null,
+  "error": [
+    {
+      "code": "400.AuthService.BAD_REQUEST",
+      "desc": ", password : may not be null"
+    }
+  ]
+}
+
+Not Found Scenario
+*********************
+1)http://hostname:8080/netgear-auth-service/user/login
+Request 
+
+{
+    "email":"swati.malla@gmail.com",
+    "password":"22"
+
+    
+}
+Response
+{
+  "email": null,
+  "lastName": null,
+  "firstName": null,
+  "name": null,
+  "error": [
+    {
+      "code": "400.AuthService.NOT_FOUND",
+      "desc": "user not found"
+    }
+  ]
+}
+HTTP STATUS:404
+
+Password incorrect scenario
+******************************
+http://hostname:8080/netgear-auth-service/user/login
+1)Request
+{
+    "email":"swati.gudla@gmail.com",
+    "password":"22"
+
+    
+}
+Response
+{
+  "email": null,
+  "lastName": null,
+  "firstName": null,
+  "name": null,
+  "error": [
+    {
+      "code": "400.AuthService.BAD_REQUEST",
+      "desc": "Password is incorrect"
+    }
+  ]
+}
+HTTP STATUS: 400 
+
+Valid Request and Resposne
+***************************
+http://hostname:8080/netgear-auth-service/user/login
+Request 
+
+{
+    "email":"swati.gudla@gmail.com",
+    "password":"11"
+
+    
+}
+
+Response
+{
+  "email": "swati.gudla@gmail.com",
+  "lastName": "gudla",
+  "firstName": "swati",
+  "name": "swati malla",
+  "error": null
+}
+
+
+
+
  
 
