@@ -14,4 +14,4 @@ CREATE TABLE auth.user (
     lastname text,
     PRIMARY KEY (email)
 );
-INSERT INTO user (email,firstname,lastname,name,password) VALUES ('swati.malla@gmail.com','swati','gudla','swati malla','11');
+INSERT INTO user (email,firstname,lastname,name,password) VALUES ('swati.gudla@gmail.com','swati','gudla','swati malla','11');
