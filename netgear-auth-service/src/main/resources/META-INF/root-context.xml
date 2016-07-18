@@ -11,17 +11,17 @@
   
       
       
-        <import resource="classpath:META-INF/cxf/cxf.xml" />
+       <!--  <import resource="classpath:META-INF/cxf/cxf.xml" /> -->
       
   
   
   <context:annotation-config />
   <import resource="classpath:domain-context.xml" />
-           <bean id="serviceHelper" class="com.netgear.auth.service.helper.ServiceHelper"/>
+  <bean id="serviceHelper" class="com.netgear.auth.service.helper.ServiceHelper"/>
  
+ <context:component-scan base-package="com.netgear.auth.service" />  
  
- 
-  <jaxrs:server id="restContainer" address="/">
+  <!-- <jaxrs:server id="restContainer" address="/">
     <jaxrs:serviceBeans>
           <bean id="authService" class="com.netgear.auth.service.AuthServiceImpl"/>
     
@@ -32,5 +32,64 @@
          <bean class="org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper" />
     </jaxrs:providers>
     
-  </jaxrs:server>
+  </jaxrs:server> -->
+  
+<!--  <bean id= "jacksonObjectMapper"  class= "com.netgear.auth.service.JSONMapper" />
+   <bean
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <property name="objectMapper" ref="jacksonObjectMapper" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+   -->
+       <!-- <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+   
+   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean
+    class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter">
+</bean> -->
+    
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    
+    
+   <!--  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+   <property name="messageConverters">
+       <list>
+           <ref bean="jsonConverter" />
+   
+       </list>
+   </property>
+</bean>
+ 
+<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+   <property name="supportedMediaTypes" value="application/json" />
+</bean> -->
+
+
+<bean id= "objectMapper"  class= "com.fasterxml.jackson.databind.ObjectMapper" />
+
+
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <constructor-arg ref="objectMapper"/>
+                </bean>
+<!--                <beans:bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                <beans:constructor-arg ref="marshaller"/>
+                </beans:bean> -->
+            </list>
+        </property>
+    </bean>
+    
 </beans>

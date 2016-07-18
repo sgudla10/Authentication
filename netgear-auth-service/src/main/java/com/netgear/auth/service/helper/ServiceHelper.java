@@ -6,6 +6,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.groups.Default;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Component;
 
 import com.netgear.auth.dto.AuthResponse;
@@ -17,6 +18,7 @@ public class ServiceHelper {
     private static final javax.validation.Validator VALIDATOR = Validation.buildDefaultValidatorFactory().getValidator();
 
     public <T> boolean validate(final T inputBean, Error error) {
+        ObjectMapper mapper = new ObjectMapper();
         StringBuilder builder = new StringBuilder();
         boolean isError = false;
         boolean isFirst = false;

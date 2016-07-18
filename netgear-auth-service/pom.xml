@@ -68,7 +68,7 @@
       <artifactId>netgear-auth-common</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
-     <dependency>
+    <dependency>
       <groupId>com.netgear.auth</groupId>
       <artifactId>netgear-auth-domain</artifactId>
       <version>0.0.1-SNAPSHOT</version>
@@ -102,18 +102,30 @@
       <artifactId>jackson-jaxrs</artifactId>
     </dependency>
     <dependency>
-    <groupId>org.codehaus.jackson</groupId>
-    <artifactId>jackson-xc</artifactId>
-</dependency>
-<dependency>
-    <groupId>javax.ws.rs</groupId>
-    <artifactId>javax.ws.rs-api</artifactId>
-    <version>2.0-m10</version>
-</dependency>
- <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-validator</artifactId>
-</dependency> 
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-xc</artifactId>
+    </dependency>
+    <!-- <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency> -->
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>2.0-m10</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.4.1</version>
+    </dependency>
+    
+   
   </dependencies>
   <build>
     <plugins>
